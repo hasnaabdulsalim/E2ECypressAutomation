@@ -45,6 +45,7 @@ E2ECypressAutomation/
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) installed on your machine.
+- To check if already installed try commands: node -v and npm -v
 
 ### Installation
 
