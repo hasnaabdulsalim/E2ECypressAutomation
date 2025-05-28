@@ -5,6 +5,16 @@ This project is a Cypress-based end-to-end (E2E) automation framework designed t
 
 ---
 
+## 🔍 Scope of Automation
+
+- User Registration
+- Login / Logout
+- Product Search
+- Product Checkout
+- Order Placement
+
+---
+
 ## 📁 Folder Structure
 
 ```
