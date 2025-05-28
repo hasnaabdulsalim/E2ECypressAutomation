@@ -205,7 +205,7 @@ A **choice parameter** named `CyScript` is used in the Jenkins job, allowing tes
   "test": "npx cypress run",
   "headTest": "npx cypress run --headed",
   "chromeTest": "npx cypress run --browser chrome",
-  "recordDashboardTest": "npx cypress run --record --key 3582b05c-6857-4da1-9d1f-247f75053ee9"
+  "recordDashboardTest": "npx cypress run --record --key <your-record-key>"
 }
 ```
 
