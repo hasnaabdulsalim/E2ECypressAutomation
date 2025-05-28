@@ -1,7 +1,7 @@
 
 # E2E Cypress Automation Framework
 
-This project is a Cypress-based end-to-end (E2E) automation framework designed to test the core functionalities of an eCommerce test application. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability. It also leverages **Cucumber BDD** for behavior-driven testing and is **integrated with Jenkins** for continuous integration and execution in a CI/CD pipeline.
+This project is a Cypress-based end-to-end (E2E) automation framework designed to test the core functionalities of an eCommerce test application. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability. It also leverages **Cucumber BDD** for behavior-driven testing, is **integrated with Jenkins** for continuous integration and execution in a CI/CD pipeline, and is **connected to Cypress Cloud** for enhanced visibility and reporting of test runs.
 
 ---
 
@@ -142,7 +142,27 @@ e2e: {
     },
 },
 ```
+---
 
+## 🧪 Test Data Management
+
+Using fixtures:
+
+```json
+{
+  "email": "testuser@example.com",
+  "password": "Password123"
+}
+```
+
+Usage:
+
+```javascript
+cy.fixture('userData').then((data) => {
+  cy.get('#email').type(data.email);
+  cy.get('#pass').type(data.password);
+});
+```
 
 ---
 
@@ -194,25 +214,23 @@ This allows dynamic selection and execution of test scripts like:
 
 ---
 
-## 🧪 Test Data Management
+## ☁️ Cypress Cloud Integration
 
-Using fixtures:
+The project is connected to [Cypress Cloud](https://cloud.cypress.io) for enhanced test visibility, video recordings, and test result dashboards.
 
-```json
-{
-  "email": "testuser@example.com",
-  "password": "Password123"
-}
+To enable it, the `projectId` is defined in `cypress.config.js`, and runs can be recorded with:
+
+```bash
+npx cypress run --record --key <your-record-key>
 ```
 
-Usage:
+For Jenkins execution, use the predefined script:
 
-```javascript
-cy.fixture('userData').then((data) => {
-  cy.get('#email').type(data.email);
-  cy.get('#pass').type(data.password);
-});
+```bash
+npm run recordDashboardTest
 ```
+
+Test runs can be monitored directly from the Cypress Cloud dashboard.
 
 ---
 
