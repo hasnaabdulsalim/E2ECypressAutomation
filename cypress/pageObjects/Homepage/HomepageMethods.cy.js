@@ -1,8 +1,8 @@
 import HomepageElements from "./HomepageElements.cy.js";
-import CreateAccountPageElements from "./CreateAccountPageElements.cy.js";
-import ProductListingPageElements from "./ProductListingPageElements.cy";
-import ProductDescriptionPageElements from "./ProductDescriptionPageElements.cy";
-import LoginPageElements from "./LoginPageElements.cy.js";
+import CreateAccountPageElements from "../CreateAccountPage/CreateAccountPageElements.cy.js";
+import ProductListingPageElements from "../ProductListingPage/ProductListingPageElements.cy.js";
+import ProductDescriptionPageElements from "../ProductDescriptionPage/ProductDescriptionPageElements.cy.js";
+import LoginPageElements from "../LoginPage/LoginPageElements.cy.js";
 
 class HomepageMethods {
 

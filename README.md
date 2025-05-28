@@ -26,10 +26,12 @@ E2ECypressAutomation/
 │   │   └── ...
 │   ├── fixtures/                         # Test data in JSON format
 │   │   └── TestData.json
-│   ├── ObjectsFunctionsRepository/       # Page Object classes
-│   │   ├── HomepageElements.cy.js
-│   │   ├── HomepageMethods.cy.js
-│   │   └── ...
+│   ├── pageObjects/                      # Page Object classes
+│   │   └── Homepage
+│   │         ├── HomepageMethods.cy.js
+│   │         └── HomepageElements.cy.js
+│   │   └── LoginPage
+│   │         └── ...
 │   └── support/
 │       ├── commands.js                   # Custom Cypress commands
 │       └── e2e.js                        # Global hooks and configurations

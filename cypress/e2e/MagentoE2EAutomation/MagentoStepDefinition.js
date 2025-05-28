@@ -1,10 +1,10 @@
 import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
-import HomepageMethods from "../../ObjectsFunctionsRepository/HomepageMethods.cy";
-import ProductListingPageMethods from "../../ObjectsFunctionsRepository/ProductListingPageMethods.cy";
-import ProductDescriptionPageMethods from "../../ObjectsFunctionsRepository/ProductDescriptionPageMethods.cy";
-import CartPageMethods from "../../ObjectsFunctionsRepository/CartPageMethods.cy";
-import CheckoutPageMethods from "../../ObjectsFunctionsRepository/CheckoutPageMethods.cy";
-import OrderConfirmationPageMethods from "../../ObjectsFunctionsRepository/OrderConfirmationPageMethods.cy";
+import HomepageMethods from "../../pageObjects/Homepage/HomepageMethods.cy";
+import ProductListingPageMethods from "../../pageObjects/ProductListingPage/ProductListingPageMethods.cy";
+import ProductDescriptionPageMethods from "../../pageObjects/ProductDescriptionPage/ProductDescriptionPageMethods.cy";
+import CartPageMethods from "../../pageObjects/CartPage/CartPageMethods.cy";
+import CheckoutPageMethods from "../../pageObjects/CheckoutPage/CheckoutPageMethods.cy";
+import OrderConfirmationPageMethods from "../../pageObjects/OrderConfirmationPage/OrderConfirmationPageMethods.cy";
 
 let userdata
 before(function () {

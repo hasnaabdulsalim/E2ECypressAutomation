@@ -1,5 +1,5 @@
 import CheckoutPageElements from "./CheckoutPageElements.cy";
-import OrderConfirmationPageElements from "./OrderConfirmationPageElements.cy";
+import OrderConfirmationPageElements from "../OrderConfirmationPage/OrderConfirmationPageElements.cy";
 
 class CheckoutPageMethods {
 

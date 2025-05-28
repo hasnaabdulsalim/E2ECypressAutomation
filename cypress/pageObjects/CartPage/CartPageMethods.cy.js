@@ -30,6 +30,7 @@ class CartPageMethods {
 
     static checkoutFromCart() {
         CartPageElements.checkoutButton().click()
+        cy.wait(4000)
     }
 
 }

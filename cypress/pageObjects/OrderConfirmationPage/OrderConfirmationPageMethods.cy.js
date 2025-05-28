@@ -1,5 +1,5 @@
 import OrderConfirmationPageElements from "./OrderConfirmationPageElements.cy";
-import OrderDetailsPageElements from "./OrderDetailsPageElements.cy";
+import OrderDetailsPageElements from "../OrderDetailsPage/OrderDetailsPageElements.cy";
 
 class OrderConfirmationPageMethods{
 
