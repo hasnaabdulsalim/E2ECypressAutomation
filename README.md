@@ -1,6 +1,7 @@
+
 # E2E Cypress Automation Framework
 
-This project is a Cypress-based end-to-end (E2E) automation framework designed to test the core functionalities of an eCommerce application. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability.
+This project is a Cypress-based end-to-end (E2E) automation framework designed to test the core functionalities of an eCommerce test application. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability. It also leverages **Cucumber BDD** for behavior-driven testing and is **integrated with Jenkins** for continuous integration and execution in a CI/CD pipeline.
 
 ---
 
@@ -11,7 +12,7 @@ E2ECypressAutomation/
 ├── cypress/
 │   ├── e2e/                              # Test specifications
 │   │   ├── MagentoE2EAutomation.cy.js
-│   │   ├── ...
+│   │   ├── MagentoE2EAutomation.feature
 │   │   └── ...
 │   ├── fixtures/                         # Test data in JSON format
 │   │   └── TestData.json
@@ -79,7 +80,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://magento.softwaretestingboard.com',
+    url: 'https://magento.softwaretestingboard.com',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
@@ -128,39 +129,68 @@ describe('Login Test', () => {
 ### Using Mochawesome
 
 ```bash
-npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+npm i --save-dev cypress-mochawesome-reporter
 ```
 
 Update `cypress.config.js`:
 
 ```javascript
 reporter: 'mochawesome',
-reporterOptions: {
-  reportDir: 'cypress/reports',
-  overwrite: false,
-  html: false,
-  json: true,
-}
+e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+},
 ```
 
-Generate HTML report:
 
-```bash
-npx mochawesome-merge cypress/reports/*.json > mochawesome.json
-npx marge mochawesome.json
+---
+
+## 🧾 Cucumber BDD Integration
+
+The framework includes a `.feature` file written in Gherkin syntax to describe behavior-driven tests.
+
+```gherkin
+Feature: End to End flow of Magento Ecommerce Site
+  Scenario: EcommerceE2EFlow
+    Given I registered and logged into the application
+    When I add product to cart from PLP
+    And I add product to cart from PDP
+    And I validate cart and checkout from cart
+    And I add shipping address
+    And I place order
+    Then Order should be placed successfully and Order details page loaded upon clicking order number
 ```
 
 ---
 
-## 🔧 Custom Commands
+## 🤖 Jenkins Integration
 
-```javascript
-Cypress.Commands.add('login', (email, password) => {
-  cy.get('#email').type(email);
-  cy.get('#pass').type(password);
-  cy.get('#send2').click();
-});
+This project is integrated with **Jenkins** for Continuous Integration and test execution via build parameters.
+
+A **choice parameter** named `CyScript` is used in the Jenkins job, allowing testers to select a specific test script to run. The choices and their corresponding commands are defined in the `package.json` file under the `scripts` section:
+
+```json
+"scripts": {
+  "test": "npx cypress run",
+  "headTest": "npx cypress run --headed",
+  "chromeTest": "npx cypress run --browser chrome",
+  "recordDashboardTest": "npx cypress run --record --key 3582b05c-6857-4da1-9d1f-247f75053ee9"
+}
 ```
+
+In Jenkins, the job is configured with the **build step**:
+
+```bash
+npm run %CyScript%
+```
+
+This allows dynamic selection and execution of test scripts like:
+
+- `test` – Headless run
+- `headTest` – Headed run
+- `chromeTest` – Run in Chrome browser
+- `recordDashboardTest` – Run with Cypress Dashboard recording
 
 ---
 
@@ -170,10 +200,8 @@ Using fixtures:
 
 ```json
 {
-  "validUser": {
-    "email": "testuser@example.com",
-    "password": "Password123"
-  }
+  "email": "testuser@example.com",
+  "password": "Password123"
 }
 ```
 
@@ -181,8 +209,8 @@ Usage:
 
 ```javascript
 cy.fixture('userData').then((data) => {
-  cy.get('#email').type(data.validUser.email);
-  cy.get('#pass').type(data.validUser.password);
+  cy.get('#email').type(data.email);
+  cy.get('#pass').type(data.password);
 });
 ```
 
@@ -190,7 +218,7 @@ cy.fixture('userData').then((data) => {
 
 ## 📬 Contact
 
-**Hasna Abdulsalim**  
+**Hasna A**  
 Quality Assurance Engineer | 5+ years of experience  
 📧 Email: [hasna.cse@gmail.com]  
 🔗 LinkedIn: [linkedin.com/in/hasna-abdulsalim](https://linkedin.com/in/hasna-abdulsalim)
