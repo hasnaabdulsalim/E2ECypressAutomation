@@ -135,24 +135,44 @@ describe('Login Test', () => {
 
 ---
 
-## 📊 Test Reporting
+## 📊 Test Reporting with Mochawesome
 
-### Using Mochawesome
+To generate beautiful and comprehensive HTML reports for your Cypress tests using [Mochawesome Reporter](https://github.com/lukejpreston/cypress-mochawesome-reporter), follow these steps:
+   
+### Step 1: Install the reporter
 
 ```bash
 npm i --save-dev cypress-mochawesome-reporter
 ```
 
-Update `cypress.config.js`:
+### Step 2: Configure `cypress.config.js`
 
 ```javascript
-reporter: 'mochawesome',
-e2e: {
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-},
+  },
+});
+
 ```
+
+### Step 3: Import the reporter in `cypress/support/e2e.js`
+
+```javascript
+import 'cypress-mochawesome-reporter/register';
+```
+
+### 📁 Output
+
+- After running tests, reports will be generated in the `reports` folder.
+
+- Open the `.html` file inside that folder to view the report.
+
 ---
 
 ## 🧪 Test Data Management
