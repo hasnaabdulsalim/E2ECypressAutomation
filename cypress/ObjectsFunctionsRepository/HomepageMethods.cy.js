@@ -2,6 +2,7 @@ import HomepageElements from "./HomepageElements.cy.js";
 import CreateAccountPageElements from "./CreateAccountPageElements.cy.js";
 import ProductListingPageElements from "./ProductListingPageElements.cy";
 import ProductDescriptionPageElements from "./ProductDescriptionPageElements.cy";
+import LoginPageElements from "./LoginPageElements.cy.js";
 
 class HomepageMethods {
 
@@ -41,10 +42,10 @@ class HomepageMethods {
     static loginApplication(email, password) {
         cy.visit(Cypress.env('url'));
         HomepageElements.signInLink().click()
-        HomepageElements.loginEmail().type(email)
-        HomepageElements.loginPassword().type(password)
-        HomepageElements.signInButton().click()
-        HomepageElements.loggedInVerification().should('exist')
+        LoginPageElements.loginEmail().type(email)
+        LoginPageElements.loginPassword().type(password)
+        LoginPageElements.signInButton().click()
+        LoginPageElements.loggedInVerification().should('exist')
     }
 
     static loadPlpFromNavigationMenu() {
