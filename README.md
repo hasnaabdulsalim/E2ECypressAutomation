@@ -1,7 +1,7 @@
 
 # E2E Cypress Automation Framework
 
-This project is a Cypress-based end-to-end (E2E) automation framework designed to test the core functionalities of an eCommerce test application. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability. It also leverages **Cucumber BDD** for behavior-driven testing, is **integrated with Jenkins** for continuous integration and execution in a CI/CD pipeline, and is **connected to Cypress Cloud** for enhanced visibility and reporting of test runs.
+This project is a Cypress-based end-to-end (E2E) UI automation framework designed to test the core functionalities of an eCommerce demo website. It follows the **Page Object Model (POM)** design pattern for better maintainability and scalability. It also leverages **Cucumber BDD** for behavior-driven testing, is **integrated with Jenkins** for continuous integration and execution in a CI/CD pipeline, and is **connected to Cypress Cloud** for enhanced visibility and reporting of test runs.
 
 ---
 
