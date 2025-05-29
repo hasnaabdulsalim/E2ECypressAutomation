@@ -22,4 +22,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         // returning false here prevents Cypress from failing the test
         return false;
     }
+
+    // Ignore cross-origin script errors like "Script error"
+    if (err.message.includes('Script error')) {
+        return false;
+    }
+
+    // For other errors, don't ignore
+    return true;
 });
